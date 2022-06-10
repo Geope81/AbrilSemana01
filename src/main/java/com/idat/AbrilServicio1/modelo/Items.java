@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Table(name = "Items")
 @Entity
-public class Item {
+public class Items {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Item {
 	@JoinColumn(name = "id_cliente", nullable = false, unique = true,
 			foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(id_cliente) references Clientes (id_cliente)"))
 	@ManyToOne
-	private Cliente cliente;	
+	private Clientes cliente;	
 	
 	public Integer getIdItem() {
 		return idItem;

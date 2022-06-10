@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.idat.AbrilServicio1.dto.ProductoDTORequest;
 import com.idat.AbrilServicio1.dto.ProductoDTOResponse;
-import com.idat.AbrilServicio1.modelo.Productos;
 import com.idat.AbrilServicio1.servicio.ProductoServicio;
 
 @RestController
@@ -29,7 +28,7 @@ public class ProductoControlador {
 	}
 	
 	@RequestMapping(path = "/guardar", method = RequestMethod.POST)
-	public ResponseEntity<Void> guardar(@RequestBody ProductoDTORequest producto){
+	public ResponseEntity<Void> guardarProducto(@RequestBody ProductoDTORequest producto){
 		servicio.guardarProducto(producto);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
@@ -43,7 +42,7 @@ public class ProductoControlador {
 	}
 	
 	@RequestMapping(path = "/editar")
-	public ResponseEntity<Void> editar(@RequestBody ProductoDTORequest producto){
+	public ResponseEntity<Void> editarProducto(@RequestBody ProductoDTORequest producto){
 		ProductoDTOResponse p = servicio.obtenerProductoId(producto.getIdproductoDTO());
 		if(p != null) {
 			servicio.editarProducto(producto);
@@ -53,7 +52,7 @@ public class ProductoControlador {
 	}
 	
 	@RequestMapping(path = "/eliminar/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Void> eliminar(@PathVariable Integer id){
+	public ResponseEntity<Void> eliminarProducto(@PathVariable Integer id){
 		ProductoDTOResponse p = servicio.obtenerProductoId(id);
 		if(p != null) {
 			servicio.eliminarProducto(id);

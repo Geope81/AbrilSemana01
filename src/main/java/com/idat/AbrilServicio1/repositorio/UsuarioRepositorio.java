@@ -3,13 +3,13 @@ package com.idat.AbrilServicio1.repositorio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.idat.AbrilServicio1.modelo.Usuario;
+import com.idat.AbrilServicio1.modelo.Usuarios;
 
 @Repository
-public interface UsuarioRepositorio extends JpaRepository<Usuario, Integer> {
+public interface UsuarioRepositorio extends JpaRepository<Usuarios, Integer> {
 	
-	Usuario findByUsuario(String usuario);
-	Usuario findByPassword(String password);
-	Usuario findByrol(String rol);
+	Usuarios findByUsuario(String usuario);
+	Usuarios findByPassword(String password);
+	Usuarios findByrol(String rol);
 
 }

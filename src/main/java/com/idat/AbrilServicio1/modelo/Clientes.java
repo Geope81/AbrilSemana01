@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Table(name = "Clientes")
 @Entity
-public class Cliente {
+public class Clientes {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class Cliente {
 	private List<Productos> producto= new ArrayList<Productos>();
 	
 	@OneToMany(mappedBy = "cliente")
-	private List<Item> item = new ArrayList<Item>();
+	private List<Items> item = new ArrayList<Items>();
 	
 	public Integer getIdCliente() {
 		return idCliente;

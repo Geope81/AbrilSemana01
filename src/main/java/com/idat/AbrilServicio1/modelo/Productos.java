@@ -32,7 +32,7 @@ public class Productos implements Serializable {
 	private Integer stock;
 	
 	@OneToOne(mappedBy = "producto")
-	private Proveedor proveedor;
+	private Proveedores proveedor;
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinTable(name = "producto_cliente",
@@ -50,7 +50,7 @@ public class Productos implements Serializable {
 			unique=true,
 			foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(id_producto) references  productos(id_producto)")))
 	
-	private List<Cliente> cliente = new ArrayList<Cliente>();
+	private List<Clientes> cliente = new ArrayList<Clientes>();
 
 	
 
@@ -94,26 +94,26 @@ public class Productos implements Serializable {
 		this.stock = stock;
 	}
 
-	public Proveedor getProveedor() {
+	public Proveedores getProveedor() {
 		return proveedor;
 	}
 
-	public void setProveedor(Proveedor proveedor) {
+	public void setProveedor(Proveedores proveedor) {
 		this.proveedor = proveedor;
 	}
 
-	public List<Cliente> getCliente() {
+	public List<Clientes> getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(List<Cliente> cliente) {
+	public void setCliente(List<Clientes> cliente) {
 		this.cliente = cliente;
 	}
 
 	
 
 	public Productos(Integer idProducto, String nombreproducto, String descripcion, Double precio, Integer stock,
-			Proveedor proveedor, List<Cliente> cliente) {
+			Proveedores proveedor, List<Clientes> cliente) {
 		super();
 		this.idProducto = idProducto;
 		this.nombreproducto = nombreproducto;

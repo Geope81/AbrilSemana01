@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.idat.AbrilServicio1.modelo.Usuario;
+import com.idat.AbrilServicio1.modelo.Usuarios;
 import com.idat.AbrilServicio1.repositorio.UsuarioRepositorio;
 
 @Service
@@ -25,7 +25,7 @@ public class UserDetailService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Usuario usuario = repositorio.findByUsuario(username);
+		Usuarios usuario = repositorio.findByUsuario(username);
 		if(usuario != null) {
 			List<GrantedAuthority> granted = new ArrayList<GrantedAuthority>();
 			GrantedAuthority authority = new SimpleGrantedAuthority(usuario.getRol());
